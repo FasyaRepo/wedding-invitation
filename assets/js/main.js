@@ -161,11 +161,13 @@
   // Ambil elemen <span> dengan id="guest"
   const spanNama = document.getElementById("guest");
 
-  // Ganti isi span sesuai parameter
+   // Ganti isi span sesuai parameter
   if (nama) {
     spanNama.textContent = decodeURIComponent(nama);
+    document.title = `Undangan untuk ${decodedNama} | Fasya & Mira`;
   } else {
-    spanNama.textContent = "Tamu Undangan";
+    spanNama.textContent = "Di Tempat";
+    document.title = "Undangan Pernikahan | Fasya & Mira";
   }
 
   window.addEventListener('load', () => {
