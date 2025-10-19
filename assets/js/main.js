@@ -172,4 +172,25 @@
     const audio = document.getElementById('song');
     audio.muted = false;
   });
+
+  document.getElementById('openInvitation').addEventListener('click', function () {
+      const cover = document.getElementById('cover');
+      const main = document.getElementById('mainContent');
+      const footer = document.getElementById('footer');
+      const song = document.getElementById('song');
+
+      // Fade out cover
+      cover.style.transition = 'opacity 1s ease';
+      cover.style.opacity = '0';
+
+      setTimeout(() => {
+        cover.style.display = 'none';
+        main.style.display = 'block';
+        footer.style.display = 'block';
+        AOS.init(); // aktifkan animasi scroll setelah muncul konten
+
+        // Mainkan lagu
+        song.play().catch(err => console.log('Autoplay diblokir:', err));
+      }, 1000);
+    });
 })();
