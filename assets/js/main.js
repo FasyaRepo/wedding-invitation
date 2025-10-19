@@ -154,7 +154,7 @@
   });
 
 
-// Ambil parameter dari URL (?nama=...)
+  // Ambil parameter dari URL (?nama=...)
   const urlParams = new URLSearchParams(window.location.search);
   const nama = urlParams.get("nama");
 
@@ -164,10 +164,8 @@
   // Ganti isi span sesuai parameter
   if (nama) {
     spanNama.textContent = decodeURIComponent(nama);
-    document.title = `Undangan untuk ${decodedNama} | Fasya & Mira`;
   } else {
     spanNama.textContent = "Di Tempat";
-    document.title = "Undangan Pernikahan | Fasya & Mira";
   }
 
   window.addEventListener('load', () => {
