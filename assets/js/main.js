@@ -153,26 +153,16 @@
     }
   });
 
-  /**
-   * Navmenu Scrollspy
-   */
-  let navmenulinks = document.querySelectorAll('.navmenu a');
 
-  function navmenuScrollspy() {
-    navmenulinks.forEach(navmenulink => {
-      if (!navmenulink.hash) return;
-      let section = document.querySelector(navmenulink.hash);
-      if (!section) return;
-      let position = window.scrollY + 200;
-      if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
-        document.querySelectorAll('.navmenu a.active').forEach(link => link.classList.remove('active'));
-        navmenulink.classList.add('active');
-      } else {
-        navmenulink.classList.remove('active');
-      }
-    })
+  // Ambil segmen terakhir dari URL
+  const path = window.location.pathname.split("/").filter(Boolean);
+  const nama = path[path.length - 1]; // Ambil nama terakhir di URL
+
+  // Ambil elemen <span> yang sudah ada
+const spanNama = document.getElementById("guest");
+
+  // Ganti teks dalam <span> kalau ada nama di URL
+  if (nama && nama.toLowerCase() !== "index.html") {
+    spanNama.textContent = decodeURIComponent(nama);
   }
-  window.addEventListener('load', navmenuScrollspy);
-  document.addEventListener('scroll', navmenuScrollspy);
-
 })();
