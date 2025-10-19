@@ -154,15 +154,17 @@
   });
 
 
-  // Ambil segmen terakhir dari URL
-  const path = window.location.pathname.split("/").filter(Boolean);
-  const nama = path[path.length - 1]; // Ambil nama terakhir di URL
+  // Ambil parameter dari URL (?nama=...)
+  const urlParams = new URLSearchParams(window.location.search);
+  const nama = urlParams.get("nama");
 
-  // Ambil elemen <span> yang sudah ada
-const spanNama = document.getElementById("guest");
+  // Ambil elemen <span> dengan id="guest"
+  const spanNama = document.getElementById("guest");
 
-  // Ganti teks dalam <span> kalau ada nama di URL
-  if (nama && nama.toLowerCase() !== "index.html") {
+  // Ganti isi span sesuai parameter
+  if (nama) {
     spanNama.textContent = decodeURIComponent(nama);
+  } else {
+    spanNama.textContent = "Tamu Undangan";
   }
 })();
