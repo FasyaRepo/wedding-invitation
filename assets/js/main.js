@@ -167,4 +167,12 @@
   } else {
     spanNama.textContent = "Tamu Undangan";
   }
+
+  window.addEventListener('load', () => {
+    const audio = document.getElementById('song');
+    audio.muted = false;
+    audio.play().catch(err => {
+      console.log('Autoplay diblokir oleh browser:', err);
+    });
+  });
 })();
