@@ -184,7 +184,7 @@
       cover.style.opacity = '0';
 
       setTimeout(() => {
-        cover.style.display = 'none';
+        cover.remove();
         main.style.display = 'block';
         footer.style.display = 'block';
         AOS.init(); // aktifkan animasi scroll setelah muncul konten
